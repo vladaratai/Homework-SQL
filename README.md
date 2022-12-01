@@ -14,10 +14,17 @@
 + [13](#13)
 + [14](#14)
 + [15](#15)
++ [16](#16)
++ [17](#17)
++ [18](#18)
++ [19](#19)
++ [20](#20)
++ [21](#21)
+
 
 
 ## №1
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие<\a>
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
 
 ```sql
 Select model , speed, hd  From pc 
@@ -25,126 +32,100 @@ Where price < 500
 ```
 
 ## №2
-
-https://www.sql-ex.ru/learn_exercises.php?LN=2
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=2">Условие</a>
 
 ```sql
-SELECT DISTINCT maker 
-FROM Product
-WHERE type = 'Printer'
+Select maker  from  product 
+Where product.type = 'printer' Group by maker
 ```
 
 ## №3
-
-https://www.sql-ex.ru/learn_exercises.php?LN=3
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=3">Условие</a>
 
 ```sql
-SELECT DISTINCT model, ram, screen
-FROM Laptop
-WHERE price > 1000
+select model, ram, screen From laptop Where price > 1000
 ```
 
 ## №4
-
-https://www.sql-ex.ru/learn_exercises.php?LN=4
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=4">Условие</a>
 
 ```sql
-SELECT code, model, color, type, price
-FROM Printer
-WHERE color = 'y'
+select * from printer where color = 'y'
 ```
 
 ## №5
-
-https://www.sql-ex.ru/learn_exercises.php?LN=5
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=5">Условие</a>
 
 ```sql
-SELECT DISTINCT model, speed, hd
-FROM PC
-WHERE price < 600 and cd = '12x' or price < 600 and cd = '24x'
+Select model ,speed , hd  From pc 
+Where (cd = '12x' or cd = '24x') and price < 600
 ```
 
 ## №6
-
-https://www.sql-ex.ru/learn_exercises.php?LN=6
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=6">Условие</a>
 
 ```sql
-SELECT DISTINCT Product.maker, Laptop.speed
-FROM Product 
-JOIN Laptop 
-ON Product.model = Laptop.model
-WHERE hd >= 10
+Select distinct Product.maker, Laptop.speed
+From Product 
+Join Laptop 
+On Product.model = Laptop.model
+Where hd >= 10
 ```
 
 ## №7
-
-https://www.sql-ex.ru/learn_exercises.php?LN=7
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=7">Условие</a>
 
 ```sql
-SELECT model, price 
-FROM PC 
-WHERE model IN (SELECT model 
- FROM Product 
- WHERE maker = 'B' AND 
- type = 'PC'
- )
-UNION
-SELECT model, price 
-FROM Laptop 
-WHERE model IN (SELECT model 
- FROM Product 
- WHERE maker = 'B' AND 
- type = 'Laptop'
- )
-UNION
-SELECT model, price 
-FROM Printer 
-WHERE model IN (SELECT model 
- FROM Product 
- WHERE maker = 'B' AND 
- type = 'Printer'
-)
+Select distinct product.model, pc.price
+From Product Join pc On product.model = pc.model Where maker = 'B'
+Union
+Select distinct product.model, laptop.price
+From product Join laptop On product.model=laptop.model Where maker='B'
+Union
+Select distinct product.model, printer.price
+From product Join printer On product.model=printer.model Where maker='B'
 ```
 
 ## №8
-https://www.sql-ex.ru/learn_exercises.php?LN=8
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=8">Условие</a>
 
 ```sql
 SELECT DISTINCT maker
 FROM Product
 WHERE type = 'PC'
 EXCEPT
-SELECT DISTINCT maker
+SELECT DISTINCT prduct.maker
 FROM Product
 WHERE type = 'Laptop'
 ```
 
 ## №9
 
-https://www.sql-ex.ru/learn_exercises.php?LN=9
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=9">Условие</a>
 
 ```sql
 SELECT DISTINCT Maker
-FROM Product JOIN
-    PC ON PC.model = Product.model
+FROM Product 
+JOIN PC ON PC.model = Product.model
 WHERE PC.speed >= 450
 ```
 
 ## №10
 
-https://www.sql-ex.ru/learn_exercises.php?LN=10
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=10">Условие</a>
+
 
 ```sql
-SELECT DISTINCT model, price
+SELECT model, price
 FROM Printer
 WHERE price = (SELECT MAX(price) 
- FROM Printer
- )
+ FROM Printer)
 ```
 
 ## №11
 
-https://www.sql-ex.ru/learn_exercises.php?LN=11
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
+
 
 ```sql
 SELECT AVG(speed)
@@ -153,7 +134,7 @@ FROM PC
 
 ## №12
 
-https://www.sql-ex.ru/learn_exercises.php?LN=12
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
 
 ```sql
 SELECT AVG(speed)
@@ -163,7 +144,7 @@ WHERE price > 1000
 
 ## №13
 
-https://www.sql-ex.ru/learn_exercises.php?LN=13
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
 
 ```sql
 SELECT AVG(speed)
@@ -173,7 +154,7 @@ WHERE Product.maker = 'A'
 ```
 ## №14
 
-https://www.sql-ex.ru/learn_exercises.php?LN=14
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
 
 ```sql
 SELECT Ships.class, name, country
@@ -184,7 +165,8 @@ WHERE Classes.numGuns >= 10
 
 ## 15
 
-https://www.sql-ex.ru/learn_exercises.php?LN=15
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
+
 
 ```sql
 SELECT hd

@@ -16,17 +16,15 @@
 + [15](#15)
 
 
-## 1
-<a target="blank" href="https://www.sql-ex.ru/learn_exercises.php?LN=1">1</a><a href="https://www.instagram.com/?hl=ru">@tulipe</a>
-https://www.sql-ex.ru/learn_exercises.php?LN=1
+## №1
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие<\a>
 
 ```sql
-SELECT model, speed, hd   
-FROM PC
-WHERE price < 500
+Select model , speed, hd  From pc 
+Where price < 500
 ```
 
-## 2
+## №2
 
 https://www.sql-ex.ru/learn_exercises.php?LN=2
 
@@ -36,7 +34,7 @@ FROM Product
 WHERE type = 'Printer'
 ```
 
-## 3
+## №3
 
 https://www.sql-ex.ru/learn_exercises.php?LN=3
 
@@ -46,7 +44,7 @@ FROM Laptop
 WHERE price > 1000
 ```
 
-## 4
+## №4
 
 https://www.sql-ex.ru/learn_exercises.php?LN=4
 
@@ -56,7 +54,7 @@ FROM Printer
 WHERE color = 'y'
 ```
 
-## 5
+## №5
 
 https://www.sql-ex.ru/learn_exercises.php?LN=5
 
@@ -66,7 +64,7 @@ FROM PC
 WHERE price < 600 and cd = '12x' or price < 600 and cd = '24x'
 ```
 
-## 6
+## №6
 
 https://www.sql-ex.ru/learn_exercises.php?LN=6
 
@@ -78,7 +76,7 @@ ON Product.model = Laptop.model
 WHERE hd >= 10
 ```
 
-## 7
+## №7
 
 https://www.sql-ex.ru/learn_exercises.php?LN=7
 
@@ -108,7 +106,7 @@ WHERE model IN (SELECT model
 )
 ```
 
-## 8
+## №8
 https://www.sql-ex.ru/learn_exercises.php?LN=8
 
 ```sql
@@ -121,7 +119,7 @@ FROM Product
 WHERE type = 'Laptop'
 ```
 
-## 9
+## №9
 
 https://www.sql-ex.ru/learn_exercises.php?LN=9
 
@@ -132,7 +130,7 @@ FROM Product JOIN
 WHERE PC.speed >= 450
 ```
 
-## 10
+## №10
 
 https://www.sql-ex.ru/learn_exercises.php?LN=10
 
@@ -144,7 +142,7 @@ WHERE price = (SELECT MAX(price)
  )
 ```
 
-## 11
+## №11
 
 https://www.sql-ex.ru/learn_exercises.php?LN=11
 
@@ -153,7 +151,7 @@ SELECT AVG(speed)
 FROM PC
 ```
 
-## 12
+## №12
 
 https://www.sql-ex.ru/learn_exercises.php?LN=12
 
@@ -163,7 +161,7 @@ FROM Laptop
 WHERE price > 1000
 ```
 
-## 13
+## №13
 
 https://www.sql-ex.ru/learn_exercises.php?LN=13
 
@@ -173,7 +171,7 @@ FROM PC JOIN
 Product ON Product.model = PC.model
 WHERE Product.maker = 'A'
 ```
-## 14
+## №14
 
 https://www.sql-ex.ru/learn_exercises.php?LN=14
 

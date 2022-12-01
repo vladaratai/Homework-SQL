@@ -100,7 +100,6 @@ WHERE type = 'Laptop'
 ```
 
 ## №9
-
 <a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=9">Условие</a>
 
 ```sql
@@ -111,9 +110,7 @@ WHERE PC.speed >= 450
 ```
 
 ## №10
-
 <a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=10">Условие</a>
-
 
 ```sql
 SELECT model, price
@@ -123,9 +120,7 @@ WHERE price = (SELECT MAX(price)
 ```
 
 ## №11
-
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
-
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=11">Условие</a>
 
 ```sql
 SELECT AVG(speed)
@@ -133,8 +128,7 @@ FROM PC
 ```
 
 ## №12
-
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=12">Условие</a>
 
 ```sql
 SELECT AVG(speed)
@@ -143,34 +137,78 @@ WHERE price > 1000
 ```
 
 ## №13
-
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=13">Условие</a>
 
 ```sql
-SELECT AVG(speed)
-FROM PC JOIN
-Product ON Product.model = PC.model
-WHERE Product.maker = 'A'
+Select sum(pc.speed) / count(*)
+From pc
+Where pc.model in (select product.model From product
+Where product.maker = 'A')
+
 ```
+
 ## №14
-
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=14">Условие</a>
 
 ```sql
-SELECT Ships.class, name, country
-FROM Ships JOIN
-Classes ON Classes.class = Ships.class
-WHERE Classes.numGuns >= 10
+SELECT ships.class, ships.name, country FROM Ships 
+JOIN classes on classes.class = ships.class
+WHERE numGuns >= 10
 ```
 
-## 15
-
-<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=1">Условие</a>
-
+## №15
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=15">Условие</a>
 
 ```sql
-SELECT hd
-FROM PC
-GROUP BY hd
-HAVING COUNT(hd) >= 2
+Select hd From pc
+Group by hd having count(*) >= 2
+```
+
+## №16
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=16">Условие</a>
+
+```sql
+SELECT DISTINCT pc_1.model, pc_2.model, pc_1.speed, pc_1.ram FROM pc pc_1, pc pc_2 
+WHERE pc_1.speed=pc_2.speed AND pc_1.ram=pc_2.ram
+and pc_1.model>pc_2.model
+```
+## №17
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=17">Условие</a>
+
+```sql
+SELECT DISTINCT product.type, laptop.model, laptop.speed
+FROM laptop, product, pc
+WHERE laptop.model = product.model AND
+      laptop.speed < (SELECT min(pc.speed) FROM pc)
+```
+## №18
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=18">Условие</a>
+
+```sql
+SELECT
+DISTINCT Pt.maker, price
+FROM
+Printer AS Pr
+JOIN
+Product AS Pt
+ON Pr.model = Pt.model
+WHERE
+price = (SELECT MIN(price)  FROM Printer WHERE color = 'y')
+AND color = 'y'
+```
+## №19
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=19">Условие</a>
+
+```sql
+select maker, AVG(screen) from laptop 
+Join product on product.model = laptop.model 
+group by maker
+```
+## №20
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=20">Условие</a>
+
+```sql
+Select maker, count(model) from product 
+where type = 'PC' group by maker 
+having count(model) >= 3
 ```

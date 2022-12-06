@@ -212,3 +212,50 @@ Select maker, count(model) from product
 where type = 'PC' group by maker 
 having count(model) >= 3
 ```
+## №21
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=21">Условие</a>
+
+```sql
+Select maker, MAX(price) max_price FROM pc
+Join product on product.model = pc.model 
+Group by maker
+```
+## №22
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=22">Условие</a>
+
+```sql
+Select, AVG(price) avg_price
+From pc
+Where speed > 699 And speed In (Select speed From pc Where > 600) Group By speed
+```
+## №23
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=23">Условие</a>
+
+```sql
+Select maker 
+From pc
+Join product On product.model = pc.model
+Where speed >= 750 
+Intersect
+Select maker From laptop Join product on product.model = laptop.model Where speed >=750
+```
+## №24
+<a taget="blanc" href="https://sql-ex.ru/learn_exercises.php?LN=24">Условие</a>
+
+```sql
+Select model From (
+Select model, price From pc
+Union
+Select model, price From laptop
+Union 
+Select model, price From printer
+) this_table Where price = (
+Select MAX(price) From(
+Select model, price From pc
+Union 
+Select model,price From laptop
+Union
+Select model,price From printer
+) this_table_2
+)
+```
